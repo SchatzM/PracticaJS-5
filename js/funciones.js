@@ -25,7 +25,8 @@ function generarCoches (cantidad) {
 		cochesAConstruir = cantidad || 10; // Cantidad de vehículos a generar. 10 por defecto
 
 	for (let i = 0; i < cochesAConstruir; i++) { // Bucle que instanciará los diferentes vehículos
-		coches[i] = new vehiculo (i+1, // Añadimos las diferentes instancias al objeto global coches
+		// Añadimos las diferentes instancias al objeto global coches
+		coches[i] = new vehiculo (i+1, // Asigna un número de ID en orden ascendente empezando por 1
 					marcasDisponibles[Math.floor(Math.random() * marcasDisponibles.length)], // Asigna una marca aleatoria de entre las disponibles
 					coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)], // Asigna un color aleatoriamente de entre los disponibles
 					estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)]); // Por ultimo asigna uno de los posibles estados
