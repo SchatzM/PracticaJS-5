@@ -22,7 +22,8 @@ function generarCoches (cantidad) {
 	let marcasDisponibles = ['Mazda', 'Toyota', 'Nissan', 'Peugeot', 'Audi', 'BMW', 'Ford'], // Marcas de las que se elegirá aleatoriamente
 		coloresDisponibles = ['Rojo', 'Verde', 'Azul', 'Negro', 'Gris', 'Blanco'], // Colores de los que se elegirá aleatoriamente
 		estadosPosibles = ['Nuevo', 'Segunda mano', 'No disponible'], // Estados a elegir aleatoriamente
-		cochesAConstruir = cantidad || 10; // Cantidad de vehículos a generar. 10 por defecto
+		cochesAConstruir = cantidad || 10, // Cantidad de vehículos a generar. 10 por defecto
+		elementoResultados = 'resultados'; // Elemento del DOM donde serán insertados los resultados a mostrar
 
 	for (let i = 0; i < cochesAConstruir; i++) { // Bucle que instanciará los diferentes vehículos
 		// Añadimos las diferentes instancias al objeto global coches
@@ -34,10 +35,14 @@ function generarCoches (cantidad) {
 					); // Por ultimo asigna uno de los posibles estados
 
 		console.info (coches[i]); // Muestra en consola las instancias una a una
+		document.getElementById(elementoResultados).innerHTML +=	`ID: ${coches[i].ID},
+																	modelo: ${coches[i].modelo},
+																	color: ${coches[i].color},
+																	estados: ${coches[i].estado}<br>`; // Muestra en pantalla los resultados uno a uno
 	}
+
 }
 
 generarCoches (); // Llamamos a la función principal
-
 console.info ('Primer coche', coches[0]); // Muestra en consola los datos del primer coche generado
 console.info ('Último coche', coches[Object.keys(coches).length-1]); // Muestra en consola los datos del último coche generado
