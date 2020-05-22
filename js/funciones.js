@@ -26,15 +26,18 @@ function generarCoches (cantidad) {
 
 	for (let i = 0; i < cochesAConstruir; i++) { // Bucle que instanciará los diferentes vehículos
 		// Añadimos las diferentes instancias al objeto global coches
-		coches[i] = new vehiculo (i+1, // Asigna un número de ID en orden ascendente empezando por 1
+		coches[i] = new vehiculo (
+					i+1, // Asigna un número de ID en orden ascendente empezando por 1
 					marcasDisponibles[Math.floor(Math.random() * marcasDisponibles.length)], // Asigna una marca aleatoria de entre las disponibles
 					coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)], // Asigna un color aleatoriamente de entre los disponibles
-					estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)]); // Por ultimo asigna uno de los posibles estados
+					estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)]
+					); // Por ultimo asigna uno de los posibles estados
 
 		console.info (coches[i]); // Muestra en consola las instancias una a una
 	}
 }
 
-generarCoches (); // Llamamos a la función principal
+generarCoches (100); // Llamamos a la función principal
 
 console.info ('Primer coche', coches[0]); // Muestra en consola los datos del primer coche generado
+console.info ('Último coche', coches[Object.keys(coches).length-1]); // Muestra en consola los datos del último coche generado
