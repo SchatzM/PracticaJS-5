@@ -37,7 +37,7 @@ function generarCoches (cantidad) {
 	}
 }
 
-generarCoches (100); // Llamamos a la función principal
+generarCoches (); // Llamamos a la función principal
 
 console.info ('Primer coche', coches[0]); // Muestra en consola los datos del primer coche generado
 console.info ('Último coche', coches[Object.keys(coches).length-1]); // Muestra en consola los datos del último coche generado
