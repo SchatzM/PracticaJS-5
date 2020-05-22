@@ -16,20 +16,24 @@ function vehiculo (ID, modelo, color, estado) {
 	this.estado = estado;
 }
 
+// Función principal que genera vehículos con diferentes instancias de 'vehiculo'
+// Admite especificar el número de vehículos a generar (10 por defecto)
 function generarCoches (cantidad) {
-	let marcasDisponibles = ['Mazda', 'Toyota', 'Nissan', 'Peugeot', 'Audi', 'BMW', 'Ford'],
-		coloresDisponibles = ['Rojo', 'Verde', 'Azul', 'Negro', 'Gris', 'Blanco'],
-		estadosPosibles = ['Nuevo', 'Segunda mano', 'No disponible'],
-		cochesAConstruir = cantidad || 10;
+	let marcasDisponibles = ['Mazda', 'Toyota', 'Nissan', 'Peugeot', 'Audi', 'BMW', 'Ford'], // Marcas de las que se elegirá aleatoriamente
+		coloresDisponibles = ['Rojo', 'Verde', 'Azul', 'Negro', 'Gris', 'Blanco'], // Colores de los que se elegirá aleatoriamente
+		estadosPosibles = ['Nuevo', 'Segunda mano', 'No disponible'], // Estados a elegir aleatoriamente
+		cochesAConstruir = cantidad || 10; // Cantidad de vehículos a generar. 10 por defecto
 
-	for (let i = 0; i < cochesAConstruir; i++) {
-		coches = 	new vehiculo (i+1,
-					marcasDisponibles[Math.floor(Math.random() * marcasDisponibles.length)],
-					coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)],
-					estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)]);
+	for (let i = 0; i < cochesAConstruir; i++) { // Bucle que instanciará los diferentes vehículos
+		coches[i] = new vehiculo (i+1, // Añadimos las diferentes instancias al objeto global coches
+					marcasDisponibles[Math.floor(Math.random() * marcasDisponibles.length)], // Asigna una marca aleatoria de entre las disponibles
+					coloresDisponibles[Math.floor(Math.random() * coloresDisponibles.length)], // Asigna un color aleatoriamente de entre los disponibles
+					estadosPosibles[Math.floor(Math.random() * estadosPosibles.length)]); // Por ultimo asigna uno de los posibles estados
 
-		console.info (coches);
+		console.info (coches[i]); // Muestra en consola las instancias una a una
 	}
 }
 
-generarCoches ();
+generarCoches (); // Llamamos a la función principal
+
+console.info ('Primer coche', coches[0]); // Muestra en consola los datos del primer coche generado
