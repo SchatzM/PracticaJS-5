@@ -38,7 +38,7 @@ function generarCoches (cantidad) {
 		document.getElementById(elementoResultados).innerHTML +=	`ID: ${coches[i].ID},
 																	modelo: ${coches[i].modelo},
 																	color: ${coches[i].color},
-																	estados: ${coches[i].estado}<br>`; // Muestra en pantalla los resultados uno a uno
+																	estado: ${coches[i].estado}<br>`; // Muestra en pantalla los resultados uno a uno
 	}
 
 }
